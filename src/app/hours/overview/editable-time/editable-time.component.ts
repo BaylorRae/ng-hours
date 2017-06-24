@@ -9,19 +9,8 @@ import { Time } from "../../../models/time";
 })
 export class EditableTimeComponent implements OnInit {
 
-  private _time: Time;
-
-  get time(): Time {
-    return this._time;
-  }
-
-  @Input('time')
-  set time(time: Time) {
-    this._time = time;
-    this.selectedHour = this.time.twelveHour.toString();
-    this.selectedMinute = ('0' + this.time.minute).match(/(\w\w)$/)[1];
-    this.selectedMeridiem = this.time.meridiem;
-  }
+  @Input()
+  time: Time;
 
   @Input()
   editing = false;
@@ -37,6 +26,9 @@ export class EditableTimeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.selectedHour = this.time.twelveHour.toString();
+    this.selectedMinute = ('0' + this.time.minute).match(/(\w\w)$/)[1];
+    this.selectedMeridiem = this.time.meridiem;
   }
 
   public newTime(): Time {
