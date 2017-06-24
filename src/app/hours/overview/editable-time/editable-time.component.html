@@ -1,0 +1,15 @@
+<time [time]="time" *ngIf="!editing"></time>
+
+<div *ngIf="editing">
+  <select [(ngModel)]="selectedHour">
+    <option *ngFor="let hour of hours">{{hour}}</option>
+  </select>
+
+  <select [(ngModel)]="selectedMinute">
+    <option *ngFor="let minute of minutes">{{minute}}</option>
+  </select>
+
+  <select [(ngModel)]="selectedMeridiem">
+    <option *ngFor="let meridiem of meridiems">{{meridiem}}</option>
+  </select>
+</div>

@@ -1,0 +1,12 @@
+<button (click)="edit()" *ngIf="!editing">Edit</button>
+<button (click)="save()" *ngIf="editing">Save</button>
+
+<fieldset>
+  <legend>Start Time</legend>
+  <app-editable-time [time]="hoursService.startTime" [editing]="editing" (newTime)="newStartTime = $event"></app-editable-time>
+</fieldset>
+
+<fieldset>
+  <legend>End Time</legend>
+  <app-editable-time [time]="hoursService.endTime" [editing]="editing" (newTime)="newEndTime = $event"></app-editable-time>
+</fieldset>
