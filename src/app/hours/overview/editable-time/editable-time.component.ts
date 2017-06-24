@@ -15,9 +15,9 @@ export class EditableTimeComponent implements OnInit {
   @Input()
   editing = false;
 
-  hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-  minutes = ['00', '15', '30', '45'];
-  meridiems = ['am', 'pm'];
+  readonly hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+  readonly minutes = ['00', '15', '30', '45'];
+  readonly meridiems = ['am', 'pm'];
 
   selectedHour: string;
   selectedMinute: string;
