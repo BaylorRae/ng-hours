@@ -9,11 +9,8 @@ import { Time } from "../../../models/time";
 })
 export class EditableTimeComponent implements OnInit {
 
-  @Input()
-  time: Time;
-
-  @Input()
-  editing = false;
+  @Input() time: Time;
+  @Input() editing = false;
 
   readonly hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   readonly minutes = ['00', '15', '30', '45'];
