@@ -24,6 +24,10 @@ export class OverviewComponent implements OnInit {
     this.editing = true;
   }
 
+  cancel(): void {
+    this.editing = false;
+  }
+
   save(): void {
     this.hoursService.startTime = this.startTime.newTime();
     this.hoursService.endTime = this.endTime.newTime();

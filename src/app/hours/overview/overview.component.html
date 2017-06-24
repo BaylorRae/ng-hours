@@ -1,5 +1,8 @@
 <button (click)="edit()" *ngIf="!editing">Edit</button>
-<button (click)="save()" *ngIf="editing">Save</button>
+<div *ngIf="editing">
+  <button (click)="cancel()">Cancel</button>
+  <button (click)="save()">Save</button>
+</div>
 
 <fieldset>
   <legend>Start Time</legend>
