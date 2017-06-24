@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { HoursService } from '../../services/hours.service';
-import { Time } from "../../models/time";
+import { EditableTimeComponent } from "./editable-time/editable-time.component";
 
 @Component({
   selector: 'app-overview',
@@ -12,8 +12,8 @@ export class OverviewComponent implements OnInit {
 
   editing = false;
 
-  newStartTime: Time;
-  newEndTime: Time;
+  @ViewChild('startTime') startTime: EditableTimeComponent;
+  @ViewChild('endTime') endTime: EditableTimeComponent;
 
   constructor(public hoursService: HoursService ) { }
 
@@ -25,8 +25,8 @@ export class OverviewComponent implements OnInit {
   }
 
   save(): void {
-    this.hoursService.startTime = this.newStartTime;
-    this.hoursService.endTime = this.newEndTime;
+    this.hoursService.startTime = this.startTime.newTime();
+    this.hoursService.endTime = this.endTime.newTime();
     this.editing = false;
   }
 

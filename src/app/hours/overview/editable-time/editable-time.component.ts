@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { Time } from "../../../models/time";
 
@@ -26,57 +26,25 @@ export class EditableTimeComponent implements OnInit {
   @Input()
   editing = false;
 
-  @Output()
-  newTime = new EventEmitter<Time>();
-
   hours = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   minutes = ['00', '15', '30', '45'];
   meridiems = ['am', 'pm'];
 
-  private _hour: string;
-  private _minute: string;
-  private _meridiem: string;
-
-  get selectedHour(): string {
-    return this._hour;
-  }
-
-  set selectedHour(hour: string) {
-    this._hour = hour;
-    this.updateTime();
-  }
-
-  get selectedMinute(): string {
-    return this._minute;
-  }
-
-  set selectedMinute(minute: string) {
-    this._minute = minute;
-    this.updateTime();
-  }
-
-  get selectedMeridiem(): string {
-    return this._meridiem;
-  }
-
-  set selectedMeridiem(meridiem: string) {
-    this._meridiem = meridiem;
-    this.updateTime();
-  }
+  selectedHour: string;
+  selectedMinute: string;
+  selectedMeridiem: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  private updateTime(): void {
-    const time = Time.fromTwelveHourTime({
+  public newTime(): Time {
+    return Time.fromTwelveHourTime({
       hour: parseInt(this.selectedHour, 0),
       minute: parseInt(this.selectedMinute, 0),
       pm: this.selectedMeridiem === 'pm'
     });
-
-    this.newTime.emit(time);
   }
 
 }
