@@ -21,7 +21,7 @@ import { HomeComponent } from './home/home.component';
     SharedModule
   ],
   providers: [
-    { provide: HoursService, useValue: new HoursService() }
+    HoursService
   ],
   bootstrap: [AppComponent]
 })
