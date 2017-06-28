@@ -1,0 +1,38 @@
+.title {
+  text-align: center;
+  margin: 0.8em 0;
+  color: #f2f2f2;
+  font-family: "Lobster Two";
+  font-style: italic;
+  font-size: 4em;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 #1098d0,
+               2px 2px 0 #e2e2e2;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #f2f2f2;
+  padding: 1em;
+  border-radius: 4px;
+  color: #444;
+}
+
+.main-nav {
+  margin-bottom: 1em;
+}
+
+.main-nav a {
+  color: #10ADED;
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-bottom: 1px dotted #10ADED;
+  border-radius: 2px;
+}
+
+.main-nav a:hover {
+  border-bottom-style: solid;
+  background: #e2e2e2;
+}
